@@ -1,0 +1,57 @@
+package core.player;
+
+import java.util.Random;
+
+import core.game.Move;
+
+public abstract class AI extends Player {
+
+	public AI() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	/**
+	 * 是否为人工下棋，true代表人工下棋，false代表机器人下棋
+	 */
+	@Override
+	public final boolean isManual() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	protected Move firstMove() {
+		Random rand = new Random();
+		int index = rand.nextInt(firstMoves.length);
+		return firstMoves[index];
+	}
+	
+	//开局库
+	private static Move[] firstMoves = { 
+			new Move('J', 'K', 'K', 'I'), // 定式1
+			new Move('I', 'K', 'L', 'J'), // 定式2
+			new Move('I', 'K', 'L', 'K'), // 定式3
+			new Move('I', 'K', 'J', 'L'), // 定式4
+			new Move('J', 'K', 'K', 'J'), // 定式5
+			new Move('I', 'K', 'K', 'L'), // 定式6
+			new Move('J', 'L', 'L', 'J'), // 定式7
+			new Move('J', 'K', 'K', 'K'), // 定式8
+			new Move('J', 'L', 'L', 'L'), // 定式9
+			new Move('K', 'I', 'I', 'K'), // 定式10
+			new Move('J', 'K', 'L', 'J'), // 定式11
+			new Move('K', 'H', 'J', 'K'), // 定式12
+			new Move('L', 'H', 'J', 'L'), // 定式13
+			new Move('J', 'I', 'J', 'K'), // 定式14
+			new Move('I', 'L', 'K', 'L'), // 定式15
+			new Move('J', 'H', 'J', 'L'), // 定式16
+			new Move('J', 'L', 'L', 'K'), // 定式17
+			new Move('J', 'K', 'K', 'L'), // 定式18
+			new Move('L', 'I', 'J', 'K'), // 定式19
+			new Move('I', 'K', 'L', 'K'), // 定式20
+			new Move('J', 'L', 'K', 'L'), // 定式21
+			new Move('L', 'I', 'I', 'K'), // 定式22
+			new Move('I', 'K', 'I', 'L'), // 定式23
+			new Move('L', 'H', 'J', 'K'), // 定式24
+			new Move('J', 'K', 'L', 'K'), // 定式25
+			new Move('J', 'K', 'J', 'L')  // 定式26
+	};
+}
